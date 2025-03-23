@@ -1,25 +1,17 @@
-﻿using System;
+﻿string palavraSecreta;
+char letra;
+bool existeNaPalavra;
 
-public class Forca
-{
-    public static void Main(string[] args)
-    {
-        Console.WriteLine("--- Forca ---");
+Console.WriteLine("--- Forca ---\n");
 
-        Console.Write("Qual a palavra secreta? ");
-        string? palavraSecreta = Console.ReadLine(); 
+Console.Write("Qual a palavra secreta? ");
+palavraSecreta = Console.ReadLine()!.Trim().ToLower();
 
-        Console.Write("Qual a letra? ");
-        char letra = Console.ReadKey().KeyChar;
-        Console.WriteLine();
+Console.Write("Qual a letra? ");
+letra = char.ToLower(Console.ReadKey().KeyChar);
 
-       string resultado = (palavraSecreta ?? "").Contains(letra) 
-            ? $"A letra \"{letra}\" existe na palavra secreta => True" 
-            : $"A letra \"{letra}\" não existe na palavra secreta => False"; 
+Console.WriteLine("\n");
 
-        Console.WriteLine(resultado);
-    }
-}
+existeNaPalavra = palavraSecreta.Contains(letra);
 
-
-
+Console.WriteLine($"A letra \"{letra}\" existe na palavra secreta => {existeNaPalavra}");
